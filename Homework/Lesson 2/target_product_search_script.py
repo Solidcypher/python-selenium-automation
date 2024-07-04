@@ -17,8 +17,9 @@ driver.get('https://www.target.com/')
 
 sleep(2)
 
-# find search field and type then then click search icon
+# find search field and enter text
 driver.find_element(By.ID, 'search').send_keys('xbox series x')
+# click search button
 driver.find_element(By.XPATH, "//button[@data-test='@web/Search/SearchButton']").click()
 
 sleep(4)
@@ -26,7 +27,7 @@ sleep(4)
 # verify
 expected_text = "xbox series x"
 actual_text = driver.find_element(By.XPATH, "//div[@data-test='resultsHeading']").text
-print(actual_text)
+
 assert expected_text in actual_text, f"Expected {expected_text} is not in actual text {actual_text}"
 
 print("Test case Passed")
