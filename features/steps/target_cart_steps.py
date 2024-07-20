@@ -1,12 +1,12 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
+from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 
 @when('Click pickup add to cart')
 def click_pickup_add_to_cart(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[data-test='orderPickupButton']").click()
-    sleep(2)
+    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-test='orderPickupButton']"))).click()
 
 
 @then('Verify empty cart text appears')

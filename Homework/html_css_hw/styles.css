@@ -1,0 +1,21 @@
+Body{
+    font-family: monospace;
+    font-size: 18px;
+}
+
+h2{
+    color: purple;
+
+}
+
+div.header{
+
+    color: mediumpurple;
+    background-color: violet;
+}
+
+div#ingredients{
+    color: darkorchid;
+    font-size: 18px;
+
+}

@@ -6,7 +6,6 @@ from time import sleep
 @given('Open Target help page')
 def open_target(context):
     context.driver.get('https://help.target.com/help')
-    sleep(2)
 
 
 @then('Verify Help page has all {number} UI elements')

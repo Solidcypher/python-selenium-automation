@@ -11,6 +11,7 @@ driver_path = ChromeDriverManager().install()
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service)
 driver.maximize_window()
+driver.implicitly_wait(5)
 
 # open the url
 driver.get('https://www.google.com/')
@@ -20,8 +21,6 @@ search = driver.find_element(By.NAME, 'q')
 search.clear()
 search.send_keys('table')
 
-# wait for 4 sec
-sleep(4)
 
 # click search button
 driver.find_element(By.NAME, 'btnK').click()
