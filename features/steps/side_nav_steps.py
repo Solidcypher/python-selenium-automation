@@ -4,6 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
 
-@when('Click decline coverage')
+@when('Click on close X')
 def click_decline_coverage(context):
-    context.driver.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-test='espDrawerContent-declineCoverageButton']"))).click()
+    context.app.side_nav.click_on_close_x()
