@@ -11,21 +11,13 @@ class SearchResultsPage(BasePage):
     PRODUCT_TITLE = (By.CSS_SELECTOR, "[data-test='product-title']")
 
     def add_to_cart_search_page(self):  # This will add the first item in your search to cart
-        self.click(*self.ADD_TO_CART_BTN)
+        self.wait_and_click(*self.ADD_TO_CART_BTN)
 
-    def verify_text(self):  # This will verify text for your search
-        actual_text = self.driver.find_element(*self.SEARCH_RESULTS_TXT).text
+    def verify_search_results_text(self, expected_product):  # This will verify text for your search
+        self.verify_partial_text(expected_product, *self.SEARCH_RESULTS_TXT)
 
-        assert 'xbox' in actual_text, f"Expected xbox not included in {actual_text}"
-
-        print("Test case Passed")
-
-    def verify_url(self):  # This will verify searched item is in current URL
-        url = self.driver.current_url
-
-        assert 'xbox' in url, f"Expected xbox not in {url}"
-
-        print("Test case Passed")
+    def verify_product_in_url(self, expected_product):  # This will verify searched item is in current URL
+        self.verify_partial_url(expected_product)
 
     def verify_product_image(self):
         # scroll to be able to see all products
@@ -33,10 +25,10 @@ class SearchResultsPage(BasePage):
         sleep(3)
         self.driver.execute_script("window.scrollBy(0, 5000)", "")
 
-        products = self.driver.find_elements(*self.PRODUCT_CARD)
+        products = self.find_elements(*self.PRODUCT_CARD)
 
         for product in products:
-            picture = self.driver.find_element(By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardImage/primary']")
+            picture = self.find_element(*self.PRODUCT_IMAGE)
 
             assert picture, f"Expected {picture} not included in {product}"
 
@@ -45,10 +37,10 @@ class SearchResultsPage(BasePage):
         sleep(3)
         self.driver.execute_script("window.scrollBy(0, 5000)", "")
 
-        products = self.driver.find_elements(*self.PRODUCT_CARD)
+        products = self.find_elements(*self.PRODUCT_CARD)
 
         for product in products:
-            title = self.driver.find_element(*self.PRODUCT_TITLE).text
+            title = self.find_element(*self.PRODUCT_TITLE).text
 
             assert title, f"Expected {title} not included in {product}"
 

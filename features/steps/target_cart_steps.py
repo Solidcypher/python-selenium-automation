@@ -14,7 +14,7 @@ def verify_empty_cart_text(context):
     context.app.cart_page.verify_empty_cart()
 
 
-@then('Verify {number} item(s) in cart')
-def verify_item_in_cart(context, number):
-    context.app.cart_page.verify_items_in_cart(number)
+@then('Verify {item_count} item(s) in cart')
+def verify_item_in_cart(context, item_count):
+    context.app.cart_page.verify_items_in_cart(item_count)
 

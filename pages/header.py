@@ -16,14 +16,14 @@ class Header(BasePage):
         self.click(*self.SEARCH_BTN)
         sleep(3)
 
-    def click_cart(self):
-        self.click(*self.CART_ICON)
+    def click_cart_icon(self):
+        self.wait_and_click(*self.CART_ICON)
 
     def click_signin(self):
-        self.click(*self.SIGNIN_BTN)
+        self.wait_and_click(*self.SIGNIN_BTN)
 
     def click_help_link(self):
-        self.click(*self.HELP_LINK)
+        self.wait_and_click(*self.HELP_LINK)
 
     def click_target_circle(self):
-        self.click(*self.TARGET_CIRCLE)
+        self.wait_and_click(*self.TARGET_CIRCLE)

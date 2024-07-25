@@ -7,7 +7,7 @@ class SideNav(BasePage):
     CLOSE_X = (By.CSS_SELECTOR, "[aria-label='close']")
 
     def click_signin_side_nav(self): # Clicks sign in on the side nav
-        self.click(*self.SIGNIN_BTN)
+        self.wait_and_click(*self.SIGNIN_BTN)
 
     def click_on_close_x(self):
         self.click(*self.CLOSE_X)

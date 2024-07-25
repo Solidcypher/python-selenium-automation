@@ -19,11 +19,11 @@ class ProductPage(BasePage):
         expected_colors = ['Black/White/Gray', 'Pastel', 'Jewel Tones']
         actual_colors = []
 
-        colors = self.driver.find_elements(*self.PRODUCT_COLOR_OPTIONS)  # [webelement1, webelement2, webelement3]
+        colors = self.find_elements(*self.PRODUCT_COLOR_OPTIONS)  # [webelement1, webelement2, webelement3]
         for color in colors:
             color.click()
 
-            selected_color = self.driver.find_element(*self.INDIVIDUAL_COLOR_OPTION).text  # 'Color\nBlack'
+            selected_color = self.find_element(*self.INDIVIDUAL_COLOR_OPTION).text  # 'Color\nBlack'
             print('Current color', selected_color)
 
             selected_color = selected_color.split('\n')[1]  # remove 'Color\n' part, keep Black'
