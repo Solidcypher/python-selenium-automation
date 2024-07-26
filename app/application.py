@@ -7,6 +7,7 @@ from pages.product_page import ProductPage
 from pages.circle_page import CirclePage
 from pages.help_page import HelpPage
 from pages.sign_in_page import SignInPage
+from pages.terms_and_conditions_page import TermsAndConditions
 
 from pages.base_page import BasePage
 
@@ -25,3 +26,4 @@ class Application:
         self.product_page = ProductPage(driver)
         self.circle_page = CirclePage(driver)
         self.help_page = HelpPage(driver)
+        self.terms_and_conditions_page = TermsAndConditions(driver)

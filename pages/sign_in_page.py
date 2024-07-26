@@ -8,6 +8,7 @@ class SignInPage(BasePage):
     EMAIL_FIELD = (By.ID, 'username')
     PASSWORD_FIELD = (By.ID, 'password')
     SIGN_IN_BTN = (By.ID, 'login')
+    TC_LINK = (By.CSS_SELECTOR, "a[aria-label='terms & conditions - opens in a new window']")
     EMAIL = 'bllizardd@kimgmail.com'
     PASSWORD = '***********'
 
@@ -19,6 +20,9 @@ class SignInPage(BasePage):
 
     def click_sign_in(self):
         self.wait_and_click(*self.SIGN_IN_BTN)
+
+    def click_tc_link(self):
+        self.wait_and_click(*self.TC_LINK)
 
     def verify_user_logged_in(self):  # I am not sure if this is the best way to do this? What would be a better way?
         sleep(2)
