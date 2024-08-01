@@ -9,11 +9,16 @@ class SignInPage(BasePage):
     PASSWORD_FIELD = (By.ID, 'password')
     SIGN_IN_BTN = (By.ID, 'login')
     TC_LINK = (By.CSS_SELECTOR, "a[aria-label='terms & conditions - opens in a new window']")
+    SIGNIN_FAILURE_MSG = (By.CSS_SELECTOR, "[data-test='authAlertDisplay']")
     EMAIL = 'bllizardd@kimgmail.com'
+    INCORRECT_EMAIL = 'Abllizardd@kimgmail.com'
     PASSWORD = '***********'
 
     def input_email(self):
         self.input_text(self.EMAIL, *self.EMAIL_FIELD)
+
+    def input_incorrect_email(self):
+        self.input_text(self.INCORRECT_EMAIL, *self.EMAIL_FIELD)
 
     def input_password(self):
         self.input_text(self.PASSWORD, *self.PASSWORD_FIELD)
@@ -29,6 +34,9 @@ class SignInPage(BasePage):
         sign_in_txt = self.find_elements(*self.SIGN_IN_TXT)
 
         assert len(sign_in_txt) == 0, f'Expected length of 0 but got {len(sign_in_txt)} '
+
+    def verify_sign_in_error_message(self):
+        self.wait_and_click(*self.SIGNIN_FAILURE_MSG)
 
     def verify_sign_in_page_appears(self):
         expected_text = "Sign into your Target account"

@@ -8,6 +8,11 @@ def input_email_address(context):
     context.app.sign_in_page.input_email()
 
 
+@when('Input incorrect email address')
+def input_incorrect_email_address(context):
+    context.app.sign_in_page.input_incorrect_email()
+
+
 @when('Input password')
 def input_password(context):
     context.app.sign_in_page.input_password()
@@ -46,6 +51,11 @@ def verify_user_logged_in(context):
 @then('Verify sign in page appears')
 def verify_signin_page_appears(context):
     context.app.sign_in_page.verify_sign_in_page_appears()
+
+
+@then('Verify sign in error message appears')
+def verify_signin_error_message(context):
+    context.app.sign_in_page.verify_sign_in_error_message()
 
 
 @then('User can close current page')

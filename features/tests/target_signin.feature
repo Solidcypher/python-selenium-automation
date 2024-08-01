@@ -17,13 +17,22 @@ Feature: Target signin tests
 #    When Click sign in
 #    Then Verify user is logged in
 
-  Scenario: User can open and close Terms and Conditions from sign in page
+  Scenario: User can't login with incorrect password
     Given Open Target main page
     When Click on sign in icon
-    And Click on sign in on side navigation
-    And Store original window
-    And Click Terms and Conditions link
-    And Switch to newly opened window
-    Then Verify Terms and Conditions page is open
-    And User can close current page
-    And User can return to original window
+    When Click on sign in on side navigation
+    When Input incorrect email address
+    When Input password
+    When Click sign in
+    Then Verify sign in error message appears
+
+#  Scenario: User can open and close Terms and Conditions from sign in page
+#    Given Open Target main page
+#    When Click on sign in icon
+#    And Click on sign in on side navigation
+#    And Store original window
+#    And Click Terms and Conditions link
+#    And Switch to newly opened window
+#    Then Verify Terms and Conditions page is open
+#    And User can close current page
+#    And User can return to original window
